@@ -1,19 +1,19 @@
-package com.example.testproject;
+package com.example.testproject.dto;
 
+import com.example.testproject.model.GroupingType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Map;
-
 @Getter
 @Setter
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class FundGroupDTO {
+public class ClientPreferenceDTO {
     private String clientShortName;
-    private Map<String, String> fundGroupMap;
+    private Boolean netting;
+    private GroupingType groupingType;
 }

@@ -1,11 +1,8 @@
-package com.example.testproject;
+package com.example.testproject.service;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.SuperBuilder;
-import org.springframework.stereotype.Service;
+import com.example.testproject.dto.FundGroupDTO;
+import com.example.testproject.model.Earning;
+import com.example.testproject.model.NetEarning;
 
 import java.util.ArrayList;
 import java.util.HashMap;

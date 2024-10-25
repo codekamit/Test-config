@@ -1,5 +1,8 @@
-package com.example.testproject;
+package com.example.testproject.dto;
 
+import com.example.testproject.dto.ClientPreferenceDTO;
+import com.example.testproject.dto.FundGroupDTO;
+import com.example.testproject.model.Earning;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

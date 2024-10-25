@@ -1,4 +1,4 @@
-package com.example.testproject;
+package com.example.testproject.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Map;
+
 @Getter
 @Setter
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientPreferenceDTO {
+public class FundGroupDTO {
     private String clientShortName;
-    private Boolean netting;
-    private GroupingType groupingType;
+    private Map<String, String> fundGroupMap;
 }

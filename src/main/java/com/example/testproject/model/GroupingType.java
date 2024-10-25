@@ -1,4 +1,4 @@
-package com.example.testproject;
+package com.example.testproject.model;
 
 public enum GroupingType {
     FUND,
