@@ -4,17 +4,15 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 @Entity
-public class Earning {
+@Setter
+@Getter
+public class ClientPreference {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String fund;
     private String clientShortName;
-    private Double amount;
-    private String currency;
+    private Boolean netting;
     @Enumerated(EnumType.STRING)
-    private State state;
+    private GroupingType groupingType;
 }

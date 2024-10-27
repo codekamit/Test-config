@@ -1,12 +1,11 @@
 package com.example.testproject.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,4 +18,9 @@ public class NetEarning {
     private String currency;
     private String clientShortName;
     private String payableAt;
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinTable(name="net_earning_map_earning",
+    joinColumns = @JoinColumn(name="earning_id"),
+    inverseJoinColumns = @JoinColumn(name="net_earning_id"))
+    private List<Earning> earnings;
 }
