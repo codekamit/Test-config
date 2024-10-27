@@ -19,31 +19,32 @@ public class NettingHandler extends BaseHandler<NettingInputDTO> {
             netEarningRepo.saveAll(netEarnings);
             return;
         }
-        else if(nettingInputDTO.getClientPreferenceDTO().getNetting().equals(false) &&
+        if(nettingInputDTO.getClientPreferenceDTO().getNetting().equals(false) &&
                 nettingInputDTO.getClientPreferenceDTO().getGroupingType().equals(GroupingType.FUND)) {
             List<NetEarning> netEarnings = NettingScenarios.noNettingFundLevel(nettingInputDTO.getClientEarnings().get(nettingInputDTO.getClientPreferenceDTO().getClientShortName()));
             netEarningRepo.saveAll(netEarnings);
             return;
         }
-        else if(nettingInputDTO.getClientPreferenceDTO().getNetting().equals(false) &&
+        if(nettingInputDTO.getClientPreferenceDTO().getNetting().equals(false) &&
                 nettingInputDTO.getClientPreferenceDTO().getGroupingType().equals(GroupingType.CLIENT)) {
             List<NetEarning> netEarnings = NettingScenarios.noNettingClientLevel(nettingInputDTO.getClientEarnings().get(nettingInputDTO.getClientPreferenceDTO().getClientShortName()), nettingInputDTO.getFundGroupDTO());
             netEarningRepo.saveAll(netEarnings);
             return;
         }
-        else if(nettingInputDTO.getClientPreferenceDTO().getNetting().equals(true) &&
+        if(nettingInputDTO.getClientPreferenceDTO().getNetting().equals(true) &&
                 nettingInputDTO.getClientPreferenceDTO().getGroupingType().equals(GroupingType.PAYMENT_FUND)) {
             List<NetEarning> netEarnings = NettingScenarios.NettingPaymentFundLevel(nettingInputDTO.getClientEarnings().get(nettingInputDTO.getClientPreferenceDTO().getClientShortName()), nettingInputDTO.getFundGroupDTO());
             netEarningRepo.saveAll(netEarnings);
             return;
         }
-        else if(nettingInputDTO.getClientPreferenceDTO().getNetting().equals(true) &&
+        if(nettingInputDTO.getClientPreferenceDTO().getNetting().equals(true) &&
                 nettingInputDTO.getClientPreferenceDTO().getGroupingType().equals(GroupingType.FUND)) {
             List<NetEarning> netEarnings = NettingScenarios.NettingFundLevel(nettingInputDTO.getClientEarnings().get(nettingInputDTO.getClientPreferenceDTO().getClientShortName()));
             netEarningRepo.saveAll(netEarnings);
             return;
         }
-        else {
+        if(nettingInputDTO.getClientPreferenceDTO().getNetting().equals(true) &&
+                nettingInputDTO.getClientPreferenceDTO().getGroupingType().equals(GroupingType.CLIENT)) {
             List<NetEarning> netEarnings = NettingScenarios.NettingClientLevel(nettingInputDTO.getClientEarnings().get(nettingInputDTO.getClientPreferenceDTO().getClientShortName()), nettingInputDTO.getFundGroupDTO());
             netEarningRepo.saveAll(netEarnings);
             return;
