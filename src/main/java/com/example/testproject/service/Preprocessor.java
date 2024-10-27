@@ -3,6 +3,8 @@ package com.example.testproject.service;
 import com.example.testproject.model.Earning;
 import com.example.testproject.model.NetEarning;
 import com.example.testproject.repository.NetEarningRepo;
+import com.example.testproject.service.chain.HandlerChain;
+import com.example.testproject.service.handler.BaseHandler;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,14 +19,14 @@ public class Preprocessor {
     }
 
     public List<NetEarning> process(List<Earning> earnings) {
-        Map<String, Map<String, List<Earning>>> currencyWiseEarnings = earnings.stream()
+        Map<String, Map<String, List<Earning>>> currencyAndClientWiseEarnings = earnings.stream()
                 .collect(Collectors.groupingBy(Earning::getCurrency,
                         Collectors.groupingBy(Earning::getClientShortName)));
 
-        currencyWiseEarnings.forEach((currency, clientEarnings) -> {
+        currencyAndClientWiseEarnings.forEach((currency, clientWiseEarnings) -> {
             if(currency.equals("CAD")) {
                 BaseHandler cadRootHandler = HandlerChain.getCADHandlerChain();
-                cadRootHandler.handle(clientEarnings);
+                cadRootHandler.handle(clientWiseEarnings);
             }
             else {
                 throw new RuntimeException("This currency is not supported");

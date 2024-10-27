@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -65,7 +66,8 @@ public class EarningService {
     }
 
     public List<NetEarning> calculateNettedEarnings() {
-        List<Earning> earnings = earningRepo.findAll();
-        return preprocessor.process(earnings);
+        Optional<List<Earning>> earningsOptional = earningRepo.findByState(State.PENDING);
+        if(earningsOptional.isEmpty()) throw new RuntimeException("There are no earnings to be processed.");
+        return preprocessor.process(earningsOptional.get());
     }
 }

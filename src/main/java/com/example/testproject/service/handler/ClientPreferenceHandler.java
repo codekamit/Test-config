@@ -1,9 +1,10 @@
-package com.example.testproject.service;
+package com.example.testproject.service.handler;
 
 import com.example.testproject.dto.ClientPreferenceDTO;
 import com.example.testproject.dto.FundGroupDTO;
 import com.example.testproject.dto.NettingInputDTO;
 import com.example.testproject.model.Earning;
+import com.example.testproject.service.ClientConfigService;
 import lombok.AllArgsConstructor;
 
 import java.util.List;

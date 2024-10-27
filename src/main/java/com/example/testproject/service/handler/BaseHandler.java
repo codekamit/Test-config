@@ -1,4 +1,4 @@
-package com.example.testproject.service;
+package com.example.testproject.service.handler;
 
 public abstract class BaseHandler<T> {
     private BaseHandler next;

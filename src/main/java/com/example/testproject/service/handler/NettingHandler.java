@@ -1,4 +1,4 @@
-package com.example.testproject.service;
+package com.example.testproject.service.handler;
 
 import com.example.testproject.model.GroupingType;
 import com.example.testproject.dto.NettingInputDTO;
