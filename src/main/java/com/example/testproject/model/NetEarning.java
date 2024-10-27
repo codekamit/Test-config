@@ -20,7 +20,7 @@ public class NetEarning {
     private String payableAt;
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinTable(name="net_earning_map_earning",
-    joinColumns = @JoinColumn(name="earning_id"),
-    inverseJoinColumns = @JoinColumn(name="net_earning_id"))
+    joinColumns = @JoinColumn(name="net_earning_id"),
+    inverseJoinColumns = @JoinColumn(name="earning_id"))
     private List<Earning> earnings;
 }

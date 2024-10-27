@@ -20,6 +20,7 @@ public interface NettingScenarios {
             netEarning.setClientShortName(earning.getClientShortName());
             netEarning.setPayableAt(fundGroupDTO.getFundGroupMap().get(earning.getFund()));
             netEarning.setTotalAmount(earning.getAmount());
+            netEarning.setEarnings(List.of(earning));
             netEarnings.add(netEarning);
         });
         return netEarnings;
@@ -33,6 +34,7 @@ public interface NettingScenarios {
             netEarning.setClientShortName(earning.getClientShortName());
             netEarning.setPayableAt(earning.getFund());
             netEarning.setTotalAmount(earning.getAmount());
+            netEarning.setEarnings(List.of(earning));
             netEarnings.add(netEarning);
         });
         return netEarnings;
@@ -46,6 +48,7 @@ public interface NettingScenarios {
             netEarning.setClientShortName(earning.getClientShortName());
             netEarning.setPayableAt(fundGroupDTO.getFundGroupMap().get(earning.getFund()));
             netEarning.setTotalAmount(earning.getAmount());
+            netEarning.setEarnings(List.of(earning));
             netEarnings.add(netEarning);
         });
         return netEarnings;
@@ -68,6 +71,7 @@ public interface NettingScenarios {
             netEarning.setTotalAmount(earnings.stream()
                     .map(Earning::getAmount)
                     .reduce(Double::sum).get());
+            netEarning.setEarnings(earnings);
             netEarnings.add(netEarning);
         });
         return netEarnings;
@@ -85,6 +89,7 @@ public interface NettingScenarios {
             netEarning.setTotalAmount(earnings.stream()
                     .map(Earning::getAmount)
                     .reduce(Double::sum).get());
+            netEarning.setEarnings(earnings);
             netEarnings.add(netEarning);
         });
         return netEarnings;
@@ -107,6 +112,7 @@ public interface NettingScenarios {
             netEarning.setTotalAmount(earnings.stream()
                     .map(Earning::getAmount)
                     .reduce(Double::sum).get());
+            netEarning.setEarnings(earnings);
             netEarnings.add(netEarning);
         });
         return netEarnings;
