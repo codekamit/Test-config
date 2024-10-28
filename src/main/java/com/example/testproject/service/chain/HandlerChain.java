@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface HandlerChain {
-    public static BaseHandler getCADHandlerChain() {
+    static BaseHandler getCADHandlerChain() {
         ApplicationContext context = SpringContextHolder.getApplicationContext();
         return new ClientPreferenceHandler(context.getBean(ClientConfigService.class),
                 new NettingHandler(context.getBean(NetEarningRepo.class)));

@@ -5,6 +5,10 @@ import com.example.testproject.dto.NettingInputDTO;
 import com.example.testproject.model.NetEarning;
 import com.example.testproject.repository.NetEarningRepo;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
